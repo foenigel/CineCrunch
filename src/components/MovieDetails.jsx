@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Star from "../assets/MovieAssets/star.svg";
 import { useScratch } from "react-use";
 import noPoster from "../assets/MovieAssets/No-Poster.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -20,9 +20,9 @@ const API_OPTIONS = {
 const MovieDetails = () => {
     const [movieDetails, setMovieDetails] = useState([]);
     const [trailer, setTrailer] = useState([]);
-    const location = useLocation();
-    const movieObject = location.state?.movie;
-    const {id, title, genre_names} = movieObject;
+    const {title, id} = useParams();
+    // const movieObject = location.state?.movie;
+    // const {id, title, genre_names} = movieObject;
     const {adult, budget, origin_country, overview, popularity, production_countries, spoken_languages, belongs_to_collection, production_companies, poster_path, backdrop_path, release_date, revenue, runtime, status, tagline, vote_average, vote_count} = movieDetails;
 
     const getCompanies = production_companies?.map((company) => company.name) || [];
@@ -49,7 +49,6 @@ const MovieDetails = () => {
     setMovieDetails(data);
 }
 
-    const navigate = useNavigate();
 
     const getTrailers = async() => {
         const endpoint = `${API_BASE_URL}/movie/${id}/videos?${API_KEY}&language=en-US`;
@@ -117,7 +116,7 @@ const MovieDetails = () => {
                     </div>
                     <div className="relative grid grid-cols-[2fr_3fr] gap-10 w-fulljustify-between items-center sm:grid-cols-[1fr_4fr]">
                         <h1 className="text-white font-semibold text-xl">Genres</h1>
-                        <p className="text-white flex-1">{genre_names.join(", ")}</p>
+                        {/* <p className="text-white flex-1">{genre_names.join(", ")}</p> */}
                     </div>
                     <div className="relative grid grid-cols-[2fr_3fr] gap-10 w-full justify-between sm:grid-cols-[1fr_4fr]">
                         <h1 className="text-white font-semibold text-xl">Release date</h1>

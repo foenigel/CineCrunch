@@ -35,7 +35,6 @@ const Home = () => {
     const [noSearchMessage, setNoSearchMessage] = useState("");
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [openModal, setOpenModal] = useState(false);
-    // const location = useLocation();
     const {total_results} = pageDetails;
     const [blur, setBlur] = useState(true);
     const [name, setName] = useState("");
@@ -43,9 +42,6 @@ const Home = () => {
         const storedName = localStorage.getItem("name");
          return !!storedName;
     });
-
-    // const query = new URLSearchParams(location.search);
-    // const recentPage = query.get('page');
 
     const todaysDate = new Date();
     const formatted = todaysDate.toLocaleDateString('en-US', {
@@ -181,11 +177,9 @@ const Home = () => {
         
     return ( <div className="relative flex flex-col items-center justify-center bg-gradient-to-b from-black to-red-950 h-auto w-full overflow-hidden">
         {/* Main hscreen Background page */}
-        <div className="min-h-screen flex items-center justify-center w-full relative">
+        <div className="min-h-screen h-auto flex items-center justify-center w-full relative">
         <img src={CineCrunchBG} className="h-full w-full object-cover absolute z-0" alt="" />
-        {/* <img src={filmTape} className="absolute bottom-0 opacity-50 w-96 right-0 z-10" alt="" /> */}
-       
-       {/* Hero */}
+    
         <div className="relative overflow-x-hidden rounded-3xl px-2 py-16 w-full flex flex-col gap-10 items-center justify-center max-w-[1200px] z-10 sm:mx-10 sm:min-h-[500px] xl:min-h-[600px] sm:m-4">
             <div className="relative flex flex-col items-center justify-center gap-10 px-0 h-auto w-auto sm:px-10">
                 <div className="relative flex items-center justify-center w-auto h-auto">
@@ -197,12 +191,12 @@ const Home = () => {
             </div>
          <img src={heroBg} className="w-full h-full absolute object-cover -z-10" alt="" />
         </div>
+        
         </div>
 
-        {/* Movie List */}
             <div className={`bg-transparent flex flex-col items-center justify-center w-full h-full ${blur || openModal ? `hidden` : `flex`} sm:px-8`}>
                 <div className="w-full h-auto max-w-[1400px] mt-10">
-                {/* Trending Section */}
+
                 <div className="flex justify-between">
                     <div className="text-white flex items-center justify-center bg-red-800/50 px-4 py-2 rounded-tl-lg rounded-tr-lg font-semibold ">{formatted}</div>
                     <div className="text-white flex items-center justify-center bg-TrendingRed font-semibold h-auto px-4 py-1 rounded-lg mb-2">Trending</div>
@@ -241,7 +235,7 @@ const Home = () => {
                 <Pagination {...pageDetails} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             </div>
 
-            {blur && <div className="absolute backdrop-blur-3xl flex items-center justify-center saturate-150 w-full min-h-screen border-2 z-30 top-0">
+            {blur && <div className="absolute backdrop-blur-3xl flex items-center justify-center saturate-150 w-full min-h-screen z-30 top-0">
                 <div className="max-w-[400px] w-full h-[300px] p-14 justify-center rounded-lg bg-black/50 flex flex-col gap-6 shadow-xl shadow-black/30">
                     <img src={logo} alt="CineCrunch Logo" />
                     <h1 className="text-white text-center">Welcome to CineCrunch! Kindly Enter your <span className="font-bold">name</span> to continue.</h1>

@@ -36,7 +36,7 @@ const Card = ({id, title, poster_path, vote_average, release_date, original_lang
 
     return ( 
         <div className="w-auto h-auto p-6 bg-black/40 backdrop-blur-2xl rounded-lg border border-white/20 flex flex-col gap-3 cursor-pointer">
-            <Link to={`/movie/${title}/${id}`} state={{movie: {id, title, genre_names}}}><img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : `${noPoster}`} className="text-white object-cover w-full h-full" alt={`${title} Poster Cover`} /></Link>
+            <Link to={`/movie/${title}/${id}`}><img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : `${noPoster}`} className="text-white object-cover w-full h-full" alt={`${title} Poster Cover`} /></Link>
              <h1 className="text-white font-semibold text-base">{title}</h1>
              <div className="relative flex justify-between items-center">
                  <div className="relative flex gap-2 items-center">
