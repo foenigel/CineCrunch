@@ -5,7 +5,7 @@ body,
 #root {
   width: 100%;
   height: 100%;
-  background-color: #360300;
+  background: var(--color-TrendingColor1);
 }
 
 @theme {
@@ -19,6 +19,10 @@ body,
   --color-TrendingRed: #f3352a;
   --color-background: #070119;
   --color-yellow: #e0c24a;
+  --color-redVersion2: #7d1212;
+  --color-lightRed: #2b0100;
+  --color-cardGray: #19171a;
+  --color-grayShade2: #9e9e9e;
 }
 
 @keyframes custom-ping {
