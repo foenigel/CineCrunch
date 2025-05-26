@@ -176,7 +176,6 @@ const Home = () => {
     },[]);
         
     return ( <div className="relative flex flex-col items-center justify-center bg-gradient-to-b from-black to-red-950 h-auto w-full overflow-hidden">
-        {/* Main hscreen Background page */}
         <div className="min-h-screen h-auto flex items-center justify-center w-full relative">
         <img src={CineCrunchBG} className="h-full w-full object-cover absolute z-0" alt="" />
     
@@ -231,7 +230,7 @@ const Home = () => {
                     ))}</div> }
                 </div>
                 </div>
-                {/*Pagination Section*/}
+             
                 <Pagination {...pageDetails} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             </div>
 
@@ -244,12 +243,10 @@ const Home = () => {
                 </div>
              </div>}
 
-             {/* Modal Section */}
              {openModal && <div className="w-full h-full absolute z-20 backdrop-blur-3xl flex items-center justify-center">
                         <Modal openModal={openModal} setOpenModal = {setOpenModal}/>
                    </div>
                 }
-
     </div> );
 }
  

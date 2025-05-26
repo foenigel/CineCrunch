@@ -16,12 +16,11 @@ const Card = ({id, title, poster_path, vote_average, release_date, original_lang
         setToggle(prev => !prev);
         console.log(toggle);
         const bookmarkValue = !toggle;
-        console.log("initial value", bookmarkValue); {/* should be true */}
+        console.log("initial value", bookmarkValue); 
         
-        {/* now i can push the value of true and the id into as an obj in an array*/}
         let bookmarkArray = JSON.parse(localStorage.getItem("bookmark")) || [];
         let movieIds = bookmarkArray.map(item => item.movieObj.id);
-        {/* so before push check if poster id exists now */}
+
         const exist = movieIds.includes(id);
         if (exist){
             bookmarkArray = bookmarkArray.filter(item => item.movieObj.id !== id);
