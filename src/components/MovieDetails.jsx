@@ -193,11 +193,11 @@ const MovieDetails = () => {
                         </div>
                     </div>
                     <div className="relative bg-cardGray p-10 w-full flex flex-col gap-4 sm:w-fit sm:rounded-2xl">
-                        <h2 className="text-white text-sm font-semibold sm:text-base flex gap-2 items-center"><BsPeopleFill color="#7A7A7A"/>{adult ? <span className="text-red-500">Restricted (R)</span> : <span className="text-green-500">General Audience <span className="text-white">(G)</span></span>}</h2>
-                        <h2 className="text-white text-sm font-semibold sm:text-base flex gap-2 items-center"><BsBarChartFill color="#7A7A7A"/>{vote_count ? `Vote Count: ${vote_count}` : "N/A"}</h2>
-                        <h2 className="text-white text-sm font-semibold sm:text-base flex gap-2 items-center"><BsCameraReels color="#7A7A7A"/>{status ? `Status: ${status}` : "N/A"}</h2>
+                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsPeopleFill color="#7A7A7A"/>{adult ? <span className="text-red-500">Restricted (R)</span> : <span className="text-green-500">General Audience <span className="text-white">(G)</span></span>}</h2>
+                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsBarChartFill color="#7A7A7A"/>{vote_count ? `Vote Count: ${vote_count}` : "N/A"}</h2>
+                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsCameraReels color="#7A7A7A"/>{status ? `Status: ${status}` : "N/A"}</h2>
                         <div className="flex gap-4">
-                            <h2 className="text-white text-sm font-semibold sm:text-base">Available on:</h2>
+                            <h2 className="text-white text-lg font-semibold sm:text-xl">Available on:</h2>
                             <a href={imdb_id ?` https://www.imdb.com/title/${imdb_id}/` : "N/A"} target="_blank" rel="noopener noreferrer"><button className="bg-yellow text-black px-4 py-2 rounded-lg font-bold cursor-pointer hover:bg-yellow-300">IMDb</button></a>
                         </div> 
                         <img src={backdropV2 ? `https://image.tmdb.org/t/p/w500/${backdropV2}`: `${noPosterHorizontal}`} alt={`${title}-Poster`} className=" text-white max-h-[150px] object-cover rounded-lg shadow-lg shadow-black/40" /> 
