@@ -119,7 +119,7 @@ const MovieDetails = () => {
     return ( 
         <div className="w-full h-auto flex flex-col items-center justify-center">
                 <div className="relative min-h-[600px] h-full flex flex-col overflow-hidden items-start justify-center w-full sm:gap-4 px-4 sm:px-20">
-                    <div className="relative z-20 -mt-16 flex gap-2 px-4 py-2 rounded-full bg-TrendingDateColor items-center justify-center sm:right-20 sm:absolute sm:top-28">
+                    <div className="relative z-20 mt-5 flex gap-2 px-4 py-2 rounded-full bg-TrendingDateColor items-center justify-center sm:right-20 sm:absolute sm:top-5">
                         <img src={Star} className="w-[20px]" alt="star_svg" />
                         <h2 className="text-white text-sm font-semibold sm:text-lg">{vote_average ? `${vote_average.toFixed(1)}/10` : "N/A"}</h2>
                     </div>
@@ -145,7 +145,7 @@ const MovieDetails = () => {
                             <h2 className="text-white text-lg font-semibold">{original_language ? original_language : "N/A"}</h2>
                         </div>
                         <p className="text-white text-xl flex-1">{overview ? overview : "N/A"}</p>
-                        <Link to={"/"}><button className="bg-TrendingRed px-4 py-3 w-fit h-fit text-white flex gap-1 items-center justify-center font-semibold rounded-md cursor-pointer mb-10">Visit Homepage<BsArrowRight className="text-white"/></button></Link>
+                        <Link to={"/"}><button className="bg-TrendingRed px-4 py-3 w-fit h-fit text-white flex gap-1 items-center justify-center font-semibold rounded-md cursor-pointer mb-20 sm:mb-10">Visit Homepage<BsArrowRight className="text-white"/></button></Link>
                     </div>
                 </div>
 
