@@ -145,7 +145,7 @@ const MovieDetails = () => {
                             <h2 className="text-white text-lg font-semibold">{original_language ? original_language : "N/A"}</h2>
                         </div>
                         <p className="text-white text-xl flex-1">{overview ? overview : "N/A"}</p>
-                        <Link to={"/"}><button className="bg-TrendingRed px-4 py-3 w-fit h-fit text-white flex gap-1 items-center justify-center font-semibold rounded-full cursor-pointer mb-20 sm:mb-10">Go back<BsArrowRight className="text-white"/></button></Link>
+                        <Link to={"/"}><button className="px-4 py-3 w-fit h-fit text-white flex gap-1 items-center justify-center font-semibold rounded-full cursor-pointer mb-20 sm:mb-10">Go back<BsArrowRight className="text-white"/></button></Link>
                     </div>
                 </div>
 
@@ -156,12 +156,12 @@ const MovieDetails = () => {
 
                 <div className={`w-full bg-gray-950 relative flex flex-col items-center p-0 gap-4 justify-center h-auto sm:flex-row sm:items-start sm:p-10 ${play ? 'hidden' : 'flex'}`}>
                     <div className="max-w-[1400px] w-full flex flex-col justify-between items-center sm:gap-10">
-                    <div className="relative flex flex-col w-full h-auto xl:flex-row sm:gap-6">
-                    <div className="w-full h-auto p-10 flex flex-col flex-1 gap-6 sm:flex-row sm:gap-10 sm:w-fit sm:mt-0 sm:rounded-2xl">
-                        <div className="relative w-full h-auto flex justify-center sm:w-fit">
+                    <div className="relative flex flex-col w-full h-auto xl:flex-row justify-evenly">
+                    <div className="w-full h-auto p-10 flex flex-col flex-1 gap-6 sm:flex-row sm:gap-10 sm:mt-0 sm:rounded-2xl">
+                        <div className="relative w-full h-auto flex justify-center">
                         <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : `${noPoster}`} className="max-h-[300px] object-cover w-fit" alt="" />
                         </div>
-                        <div className="flex flex-col gap-4">
+                        <div className="flex w-full flex-col gap-4">
                             <div className="flex gap-4 items-center">
                             <h2 className="text-white text-2xl font-bold">{title ? title : "N/A"}</h2>
                             <h2 className="text-TrendingDateColor px-2 rounded-md text-lg font-bold bg-white">{dateFormat ? dateFormat.split(" ")[2] : "N/A"}</h2>
@@ -178,17 +178,17 @@ const MovieDetails = () => {
                             </div>
                             <ul className="flex flex-wrap gap-3">
                                 {Object.values(getGenres).map((genre, index) => (
-                                    <li key={index} className="text-grayShade2 w-fit px-4 py-2 border-2 border-white/30 rounded-xl font-bold text-nowrap">{genre}</li>
+                                    <li key={index} className="text-white w-fit px-4 py-2 bg-TrendingRed rounded-full font-bold text-nowrap">{genre}</li>
                                 ))}
                             </ul>
                             <div className="border-[1px] border-gray-500/80"></div>
                             <div className="flex flex-col gap-3 items-start sm:flex-row">
-                                <h1 className="text-white font-semibold text-xl">Tagline:</h1>
-                                <h3 className="text-white text-lg sm:text-xl">{tagline ? tagline : "N/A"}</h3>
+                                <h1 className="text-white font-semibold tracking-tight text-lg">Tagline:</h1>
+                                <h3 className="text-white whitespace-nowrap tracking-tight text-lg">{tagline ? tagline : "N/A"}</h3>
                             </div>
                              <div className="flex gap-3 items-center">
                                 <h1 className="text-red-500 font-semibold text-xl"><BsGlobe2 size={25}/></h1>
-                                <h3 className="text-white flex-1">{homepage ? <a href={homepage} target="_blank" rel="noopener noreferrer" className="text-white text-lg border-b-[1px] cursor-pointer">Visit Official Website</a> : "N/A"}</h3>
+                                <h3 className="text-white flex-1">{homepage ? <a href={homepage} target="_blank" rel="noopener noreferrer" className="text-white text-md tracking-tight cursor-pointer">Visit Official Website</a> : "N/A"}</h3>
                             </div>
                         </div>
                     </div>
@@ -200,36 +200,39 @@ const MovieDetails = () => {
                             <h2 className="text-white text-lg font-semibold sm:text-xl">Available on:</h2>
                             <a href={imdb_id ?` https://www.imdb.com/title/${imdb_id}/` : "N/A"} target="_blank" rel="noopener noreferrer"><button className="bg-yellow text-black px-4 py-2 rounded-lg font-bold cursor-pointer hover:bg-yellow-300">IMDb</button></a>
                         </div> 
-                        <img src={backdropV2 ? `https://image.tmdb.org/t/p/w500/${backdropV2}`: `${noPosterHorizontal}`} alt={`${title}-Poster`} className=" text-white max-h-[150px] object-cover rounded-lg shadow-lg shadow-black/40" /> 
+                        
                     </div>
+                    <img src={backdropV2 ? `https://image.tmdb.org/t/p/w500/${backdropV2}`: `${noPosterHorizontal}`} alt={`${title}-Poster`} className="text-white mt-10 max-h-[150px] object-cover rounded-lg shadow-lg shadow-black/40" /> 
                     </div>
-                    <h2 className="text-white text-left w-full text-3xl font-semibold tracking-tight">Scenes</h2>
+
+                    <h2 className="text-white text-left w-full text-3xl font-semibold tracking-tight my-10 px-6 sm:my-0 sm:px-0">Scenes</h2>
                     <MovieScenes movieScenes={movieScenes}/>
 
-                    <div className="relative w-full bg-cardGray/20 flex flex-col gap-10 px-2 py-8 rounded-xl sm:p-10">
-                    <div className="relative grid grid-cols-[2fr_3fr] gap-10 w-full justify-between sm:grid-cols-[1fr_4fr] border-b-2 border-white/20">
-                        <h1 className="text-white font-semibold text-xl pb-3">Release date</h1>
-                        <h3 className="text-white flex-1">{dateFormat ? dateFormat : "N/A"}</h3>
+                    <h2 className="text-3xl text-white w-full text-left mt-10 px-6 sm:mt-0 sm:px-0">More Details</h2>
+                    <div className="relative w-full bg-cardGray/20 grid grid-cols-1 sm:grid-cols-2 gap-10 p-6 py-8 sm:p-10">
+                    <div className="relative grid grid-cols-1 gap-2 items-center w-full justify-between sm:grid-cols-2">
+                        <h1 className="text-white font-semibold text-xl whitespace-nowrap">Release date:</h1>
+                        <h3 className="text-white flex-1 text-xl">{dateFormat ? dateFormat : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-[2fr_3fr] gap-2 w-full justify-between sm:gap-10 sm:grid-cols-[1fr_4fr] border-b-2 border-white/20">
-                        <h1 className="text-white font-semibold text-xl pb-3">Countries</h1>
-                        <h3 className="text-white flex-1">{getCountries ? getCountries.join(", ") : "N/A"}</h3>
+                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
+                        <h1 className="text-white font-semibold text-xl whitespace-nowrap">Countries:</h1>
+                        <h3 className="text-white flex-1 text-xl">{getCountries ? getCountries.join(", ") : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-[2fr_3fr] gap-10 w-full justify-between sm:grid-cols-[1fr_4fr] border-b-2 border-white/20">
-                        <h1 className="text-white font-semibold text-xl pb-3">Languages</h1>
-                        <h3 className="text-white flex-1">{getLanguages ? getLanguages.join(", ") : "N/A"}</h3>
+                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
+                        <h1 className="text-white font-semibold text-xl pb-3 whitespace-nowrap">Languages:</h1>
+                        <h3 className="text-white flex-1 text-xl">{getLanguages ? getLanguages.join(", ") : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-[2fr_3fr] gap-10 w-full justify-between sm:grid-cols-[1fr_4fr] border-b-2 border-white/20">
-                        <h1 className="text-white font-semibold text-xl pb-3">Budget</h1>
-                        <h3 className="text-white flex-1">{budget ? parseInt(budget).toLocaleString("en-US", { style: "currency", currency: "USD" }) : "N/A"}</h3>
+                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
+                        <h1 className="text-white font-semibold text-xl pb-3 whitespace-nowrap">Budget:</h1>
+                        <h3 className="text-white flex-1 text-xl">{budget ? parseInt(budget).toLocaleString("en-US", { style: "currency", currency: "USD" }) : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-[2fr_3fr] gap-10 w-full justify-between sm:grid-cols-[1fr_4fr] border-b-2 border-white/20">
-                        <h1 className="text-white font-semibold text-xl pb-3">Revenue</h1>
-                        <h3 className="text-white flex-1">{revenue ? parseInt(revenue).toLocaleString("en-US", { style: "currency", currency: "USD" }) : "N/A"}</h3>
+                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
+                        <h1 className="text-white font-semibold text-xl pb-3 whitespace-nowrap">Revenue:</h1>
+                        <h3 className="text-white flex-1 text-xl">{revenue ? parseInt(revenue).toLocaleString("en-US", { style: "currency", currency: "USD" }) : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-[2fr_3fr] gap-2 w-full justify-between sm:grid-cols-[1fr_4fr] sm:gap-10">
-                        <h1 className="text-white font-semibold text-xl pb-3">Production Companies</h1>
-                        <h3 className="text-white flex-1">{getCompanies ? getCompanies.join(", ") : "N/A"}</h3>
+                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
+                        <h1 className="text-white font-semibold text-xl pb-3 whitespace-nowrap">Production Companies:</h1>
+                        <h3 className="text-white flex-1 text-xl">{getCompanies ? getCompanies.join(", ") : "N/A"}</h3>
                     </div>
                     </div>
                     </div>
@@ -237,7 +240,7 @@ const MovieDetails = () => {
 
                 {
                     play && <div className="absolute top-0 left-0 w-full h-full z-20 bg-black flex items-center justify-center">
-                        <button className="absolute text-white cursor-pointer top-5 z-30 bg-TrendingRed px-4 py-2 rounded-full font-semibold right-5 flex gap-2 items-center" onClick={exitModal}><BsArrowLeft color="#FFFFFF" size={22}/>Go Back</button>
+                        <button className="absolute text-white cursor-pointer top-5 z-30 px-4 py-2 rounded-full font-semibold right-5 flex gap-2 items-center" onClick={exitModal}><BsArrowLeft color="#FFFFFF" size={22}/>Go Back</button>
                         <iframe className="w-full h-3/4 rounded-lg z-20" src={`https://www.youtube.com/embed/${trailerKey}?rel=0&modestbranding=1&autoplay=1&controls=1&enablejsapi=1`} title="Movie Trailer" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </div>
                 }

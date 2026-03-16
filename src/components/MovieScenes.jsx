@@ -16,7 +16,7 @@ const MovieScenes = ({movieScenes}) => {
     const randomSixScenes = shuffledScenes.slice(0, 6);
 
     return ( 
-        <div className="grid grid-cols-1 w-full h-auto sm:grid-cols-3 sm:gap-4">
+        <div className="grid grid-cols-1 w-full h-auto sm:grid-cols-3 gap-4">
             {
                 randomSixScenes.map((scene, index) => (
                 <img key={index} className="rounded-xl" src={`https://image.tmdb.org/t/p/w780${scene}`} alt="Movie-Scenes" />
