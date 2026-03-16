@@ -185,7 +185,7 @@ const Home = () => {
                 <img src={heroPosters} className="flex-1 z-10 max-h-[340px] sm:flex-2" alt="" />
                 <img src={logo} className="flex-1 absolute h-auto z-10 bottom-0 w-1/3 sm:w-3/4" alt="" />
                 </div>
-                <h1 className="text-white font-bold text-3xl text-center sm:text-5xl">Find <span className="text-red-500">Movies</span> You’ll Love Without the Hassle</h1>
+                <h1 className="text-white tracking-tighter font-bold text-3xl text-center sm:text-5xl">Find <span className="text-red-500">Movies</span> You’ll Love Without the Hassle</h1>
                 <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
             </div>
          <img src={heroBg} className="w-full h-full absolute object-cover -z-10" alt="" />
@@ -196,27 +196,39 @@ const Home = () => {
             <div className={`bg-transparent flex flex-col items-center justify-center w-full h-full ${blur || openModal ? `hidden` : `flex`} sm:px-8`}>
                 <div className="w-full h-auto max-w-[1400px] mt-10">
 
-                <div className="flex justify-between">
-                    <div className="text-white flex items-center justify-center bg-red-800/50 px-4 py-2 rounded-tl-lg rounded-tr-lg font-semibold ">{formatted}</div>
-                    <div className="text-white flex items-center justify-center bg-TrendingRed font-semibold h-auto px-4 py-1 rounded-lg mb-2">Trending</div>
-                </div>
-                <div className="bg-gradient-to-t from-transparent to-red-700/80 backdrop-blur-3xl saturate-150 w-full h-auto p-8 mb-8 rounded-tr-xl rounded-bl-xl rounded-br-xl">
-                   <h2 className="font-bold text-3xl text-white mb-6">Top Searched Movies</h2>
+                {/* <div className="flex text-lg justify-between">
+                    <div className="text-white flex tracking-tight items-center justify-center py-2 rounded-tl-lg rounded-tr-lg">{formatted}</div>
+                    <div className="text-white flex tracking-tight items-center justify-center h-auto py-1 rounded-lg mb-2">trending</div>
+                </div> */}
+                <div className="backdrop-blur-3xl saturate-150 w-full h-auto mb-8 rounded-tr-xl rounded-bl-xl rounded-br-xl">
+                   
+                    <div className="relative flex items-center w-full justify-between mb-6">
+                        <h2 className="font-bold text-3xl text-white tracking-tight">Top Searched Movies</h2>
+                    <button className="text-white text-center px-4 py-2 rounded-full bg-red-800 cursor-pointer" onClick={toggleModal}>Bookmarks</button>
+                    </div>
                     {trendingMovies.length > 0 && (
                         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-5">
-                            {trendingMovies.map((movie, index) => (
-                                <li key={movie.$id}>
-                                    <img src={movie.poster_url} className="shadow-lg shadow-black/80 saturate-100" alt="" />
-                                </li>
-                            ))}
-                       </ul>
+                        {trendingMovies.map((movie) => (
+                            <li key={movie.$id} className="group relative">
+                            
+                            {/* Neon glow background */}
+                            <div className="absolute -inset-1 rounded-xl opacity-0 blur-lg transition duration-300 group-hover:opacity-70"></div>
+
+                            <img
+                                src={movie.poster_url}
+                                alt=""
+                                className="relative rounded-xl shadow-lg shadow-black/80 transform transition-all duration-300 ease-out 
+                                group-hover:-translate-y-2 group-hover:scale-105 cursor-pointer"
+                            />
+                            
+                            </li>
+                        ))}
+                        </ul>
                     )}
-                    <div className="relative flex w-full justify-center">
-                    <button className="text-white mt-10 text-center px-4 py-2 rounded-lg border-2 border-white cursor-pointer hover:bg-TrendingRed/70" onClick={toggleModal}>View Bookmarks</button>
-                    </div>
+                    
                 </div>
 
-                <div className="relative flex flex-col gap-2">
+                <div className="relative flex mt-20 flex-col gap-2">
                     <div className="px-2 flex flex-col justify-between sm:flex-row">
                         <h2 className="font-bold text-3xl text-white mb-2">All Movies</h2>
                         <div className="flex items-center rounded-lg">
@@ -224,7 +236,7 @@ const Home = () => {
                         
                         </div>
                     </div>
-                {loading ? <div className="text-center"><Spinner/></div> : errorMessage ? <p className="text-red-500 text-center">{errorMessage}</p> : noSearchMessage ? <h1 className="text-red-500 text-xl font-semibold text-center">{noSearchMessage}</h1> :<div className={`h-auto gap-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4`}>
+                {loading ? <div className="text-center"><Spinner/></div> : errorMessage ? <p className="text-red-500 text-center">{errorMessage}</p> : noSearchMessage ? <h1 className="text-red-500 text-xl font-semibold text-center">{noSearchMessage}</h1> :<div className={`h-auto gap-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4`}>
                     {moviesWithGenres.map((movie) => (
                         <Card key={movie.id} {...movie}/>
                     ))}</div> }

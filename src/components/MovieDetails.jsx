@@ -145,7 +145,7 @@ const MovieDetails = () => {
                             <h2 className="text-white text-lg font-semibold">{original_language ? original_language : "N/A"}</h2>
                         </div>
                         <p className="text-white text-xl flex-1">{overview ? overview : "N/A"}</p>
-                        <Link to={"/"}><button className="bg-TrendingRed px-4 py-3 w-fit h-fit text-white flex gap-1 items-center justify-center font-semibold rounded-md cursor-pointer mb-20 sm:mb-10">Visit Homepage<BsArrowRight className="text-white"/></button></Link>
+                        <Link to={"/"}><button className="bg-TrendingRed px-4 py-3 w-fit h-fit text-white flex gap-1 items-center justify-center font-semibold rounded-full cursor-pointer mb-20 sm:mb-10">Go back<BsArrowRight className="text-white"/></button></Link>
                     </div>
                 </div>
 
@@ -154,12 +154,12 @@ const MovieDetails = () => {
                 <img src={`https://image.tmdb.org/t/p/original/${backdrop_path}`} alt={`${title}-Poster`} className=" text-white absolute w-full h-full top-0 left-0 object-cover z-0 shadow-lg saturate-100 sm:object-cover" />
                 </div>
 
-                <div className={`w-full bg-gradient-to-b from-redVersion2 to-lightRed relative flex flex-col items-center p-0 gap-4 justify-center h-auto sm:flex-row sm:items-start sm:p-10 ${play ? 'hidden' : 'flex'}`}>
-                    <div className="max-w-[1100px] w-full flex flex-col justify-between items-center sm:gap-10">
+                <div className={`w-full bg-gray-950 relative flex flex-col items-center p-0 gap-4 justify-center h-auto sm:flex-row sm:items-start sm:p-10 ${play ? 'hidden' : 'flex'}`}>
+                    <div className="max-w-[1400px] w-full flex flex-col justify-between items-center sm:gap-10">
                     <div className="relative flex flex-col w-full h-auto xl:flex-row sm:gap-6">
-                    <div className="bg-cardGray w-full h-auto p-10 flex flex-col flex-1 gap-6 sm:flex-row sm:gap-10 sm:w-fit sm:mt-0 sm:rounded-2xl">
+                    <div className="w-full h-auto p-10 flex flex-col flex-1 gap-6 sm:flex-row sm:gap-10 sm:w-fit sm:mt-0 sm:rounded-2xl">
                         <div className="relative w-full h-auto flex justify-center sm:w-fit">
-                        <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : `${noPoster}`} className="max-h-[300px] object-cover w-fit shadow-xl shadow-white/30" alt="" />
+                        <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : `${noPoster}`} className="max-h-[300px] object-cover w-fit" alt="" />
                         </div>
                         <div className="flex flex-col gap-4">
                             <div className="flex gap-4 items-center">
@@ -192,7 +192,7 @@ const MovieDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="relative bg-cardGray p-10 w-full flex flex-col gap-4 sm:w-fit sm:rounded-2xl">
+                    <div className="relative p-10 w-full flex flex-col gap-4 sm:w-fit sm:rounded-2xl">
                         <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsPeopleFill color="#7A7A7A"/>{adult ? <span className="text-red-500">Restricted (R)</span> : <span className="text-green-500">General Audience <span className="text-white">(G)</span></span>}</h2>
                         <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsBarChartFill color="#7A7A7A"/>{vote_count ? `Vote Count: ${vote_count}` : "N/A"}</h2>
                         <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsCameraReels color="#7A7A7A"/>{status ? `Status: ${status}` : "N/A"}</h2>
@@ -203,10 +203,10 @@ const MovieDetails = () => {
                         <img src={backdropV2 ? `https://image.tmdb.org/t/p/w500/${backdropV2}`: `${noPosterHorizontal}`} alt={`${title}-Poster`} className=" text-white max-h-[150px] object-cover rounded-lg shadow-lg shadow-black/40" /> 
                     </div>
                     </div>
-
+                    <h2 className="text-white text-left w-full text-3xl font-semibold tracking-tight">Scenes</h2>
                     <MovieScenes movieScenes={movieScenes}/>
 
-                    <div className="relative bg-cardGray/20 flex flex-col gap-10 px-2 py-8 rounded-xl sm:p-10">
+                    <div className="relative w-full bg-cardGray/20 flex flex-col gap-10 px-2 py-8 rounded-xl sm:p-10">
                     <div className="relative grid grid-cols-[2fr_3fr] gap-10 w-full justify-between sm:grid-cols-[1fr_4fr] border-b-2 border-white/20">
                         <h1 className="text-white font-semibold text-xl pb-3">Release date</h1>
                         <h3 className="text-white flex-1">{dateFormat ? dateFormat : "N/A"}</h3>
