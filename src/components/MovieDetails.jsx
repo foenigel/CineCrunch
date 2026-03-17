@@ -118,14 +118,15 @@ const MovieDetails = () => {
 
     return ( 
         <div className="w-full h-auto flex flex-col items-center justify-center">
-                <div className="relative min-h-[600px] h-full flex flex-col overflow-hidden items-start justify-center w-full sm:gap-4 px-4 sm:px-20">
+            <div className="relative w-full h-auto overflow-hidden flex justify-center items-center">
+                <div className="relative min-h-[600px] max-w-[1400px] h-full flex flex-col overflow-hidden items-start justify-center w-full sm:gap-4 px-4 sm:px-20">
                     <div className="relative z-20 mt-5 flex gap-2 px-4 py-2 rounded-full bg-TrendingDateColor items-center justify-center sm:right-20 sm:absolute sm:top-5">
                         <img src={Star} className="w-[20px]" alt="star_svg" />
                         <h2 className="text-white text-sm font-semibold sm:text-lg">{vote_average ? `${vote_average.toFixed(1)}/10` : "N/A"}</h2>
                     </div>
                 <div className="relative w-full flex gap-14 mt-4 items-start z-10 sm:max-w-[1400px] sm:mt-0">
                     <div className="flex w-full flex-col gap-8 sm:w-10/12 xl:w-7/12">
-                        <h2 className="text-white text-3xl font-semibold sm:text-5xl">{title ? title : "N/A"}</h2>
+                        <h2 className="text-white text-3xl font-semibold tracking-tight sm:text-5xl">{title ? title : "N/A"}</h2>
                         <div className="relative grid grid-cols-2 gap-4 items-center w-fit sm:flex">
                             <div className="flex gap-2 items-center">
                                 <h2 className="flex gap-2 text-lg font-semibold text-white"><BsPeopleFill color="#FFFFFF" size={24}/>{popularity ? popularity : "N/A"}</h2>
@@ -138,21 +139,22 @@ const MovieDetails = () => {
                             </div>
                            
                            <div className="flex gap-2 items-center">
-                                <h2 className="px-4 py-2 bg-white/15 rounded-xl font-semibold text-white text-lg">Ongoing</h2>
+                                <h2 className="px-4 py-2 tracking-tight bg-white/15 rounded-xl font-semibold text-white text-lg">Ongoing</h2>
                                 <span className="text-white/70 text-2xl">&#x2022;</span>
                            </div>
                             
                             <h2 className="text-white text-lg font-semibold">{original_language ? original_language : "N/A"}</h2>
                         </div>
-                        <p className="text-white text-xl flex-1">{overview ? overview : "N/A"}</p>
-                        <Link to={"/"}><button className="px-4 py-3 w-fit h-fit text-white flex gap-1 items-center justify-center font-semibold rounded-full cursor-pointer mb-20 sm:mb-10">Go back<BsArrowRight className="text-white"/></button></Link>
+                        <p className="text-white text-xl tracking-tight leading-loose flex-1">{overview ? overview : "N/A"}</p>
+                        <Link to={"/"}><button className="py-3 tracking-tight w-fit h-fit text-white flex gap-1 items-center justify-center font-semibold rounded-full cursor-pointer mb-20 sm:mb-10 hover:text-TrendingRed">Go back<BsArrowRight className="font-bold"/></button></Link>
                     </div>
                 </div>
 
                 <button className="text-white rounded-full px-4 py-2 bg-white/30 flex items-center justify-center gap-2 absolute right-4 bottom-0 z-10 sm:right-20 cursor-pointer hover:bg-TrendingRed sm:bottom-10" onClick={playTrailer}><BsPlayFill color="#FFFFFF" size={25}/>Watch Trailer</button>
+                </div>
                 <div className="w-full h-full absolute bg-gradient-to-t from-black/80 via-black/40 to-black/25 z-[5] top-0 left-0 sm:bg-gradient-to-t sm:from-black/80 sm:via-black/35 sm:to-black/0"></div>
                 <img src={`https://image.tmdb.org/t/p/original/${backdrop_path}`} alt={`${title}-Poster`} className=" text-white absolute w-full h-full top-0 left-0 object-cover z-0 shadow-lg saturate-100 sm:object-cover" />
-                </div>
+               </div>
 
                 <div className={`w-full bg-gray-950 relative flex flex-col items-center p-0 gap-4 justify-center h-auto sm:flex-row sm:items-start sm:p-10 ${play ? 'hidden' : 'flex'}`}>
                     <div className="max-w-[1400px] w-full flex flex-col justify-between items-center sm:gap-10">
@@ -187,16 +189,16 @@ const MovieDetails = () => {
                                 <h3 className="text-white whitespace-nowrap tracking-tight text-lg">{tagline ? tagline : "N/A"}</h3>
                             </div>
                              <div className="flex gap-3 items-center">
-                                <h1 className="text-red-500 font-semibold text-xl"><BsGlobe2 size={25}/></h1>
+                                <h1 className="text-sky-400 font-semibold text-xl"><BsGlobe2 size={25}/></h1>
                                 <h3 className="text-white flex-1">{homepage ? <a href={homepage} target="_blank" rel="noopener noreferrer" className="text-white text-md tracking-tight cursor-pointer">Visit Official Website</a> : "N/A"}</h3>
                             </div>
                         </div>
                     </div>
                     <div className="relative p-10 w-full flex flex-col gap-4 sm:w-fit sm:rounded-2xl">
-                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsPeopleFill color="#7A7A7A"/>{adult ? <span className="text-red-500">Restricted (R)</span> : <span className="text-green-500">General Audience <span className="text-white">(G)</span></span>}</h2>
-                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsBarChartFill color="#7A7A7A"/>{vote_count ? `Vote Count: ${vote_count}` : "N/A"}</h2>
-                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsCameraReels color="#7A7A7A"/>{status ? `Status: ${status}` : "N/A"}</h2>
-                        <div className="flex gap-4">
+                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsPeopleFill color="#ffffff36"/>{adult ? <span className="text-red-500">Restricted (R)</span> : <span className="text-green-500">General Audience <span className="text-white">(G)</span></span>}</h2>
+                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsBarChartFill color="#ffffff36"/>{vote_count ? `Vote Count: ${vote_count}` : "N/A"}</h2>
+                        <h2 className="text-white text-lg font-semibold sm:text-xl flex gap-2 items-center"><BsCameraReels color="#ffffff36"/>{status ? `Status: ${status}` : "N/A"}</h2>
+                        <div className="flex flex-col gap-4">
                             <h2 className="text-white text-lg font-semibold sm:text-xl">Available on:</h2>
                             <a href={imdb_id ?` https://www.imdb.com/title/${imdb_id}/` : "N/A"} target="_blank" rel="noopener noreferrer"><button className="bg-yellow text-black px-4 py-2 rounded-lg font-bold cursor-pointer hover:bg-yellow-300">IMDb</button></a>
                         </div> 
@@ -208,30 +210,30 @@ const MovieDetails = () => {
                     <h2 className="text-white text-left w-full text-3xl font-semibold tracking-tight my-10 px-6 sm:my-0 sm:px-0">Scenes</h2>
                     <MovieScenes movieScenes={movieScenes}/>
 
-                    <h2 className="text-3xl text-white w-full text-left mt-10 px-6 sm:mt-0 sm:px-0">More Details</h2>
+                    <h2 className="text-3xl text-white w-full text-left font-semibold mt-10 px-6 sm:mt-0 sm:px-0">More Details</h2>
                     <div className="relative w-full bg-cardGray/20 grid grid-cols-1 sm:grid-cols-2 gap-10 p-6 py-8 sm:p-10">
-                    <div className="relative grid grid-cols-1 gap-2 items-center w-full justify-between sm:grid-cols-2">
+                    <div className="relative flex flex-col gap-6 items-start w-full sm:flex-row">
                         <h1 className="text-white font-semibold text-xl whitespace-nowrap">Release date:</h1>
                         <h3 className="text-white flex-1 text-xl">{dateFormat ? dateFormat : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
+                    <div className="relative flex flex-col gap-6 items-start w-full sm:flex-row">
                         <h1 className="text-white font-semibold text-xl whitespace-nowrap">Countries:</h1>
                         <h3 className="text-white flex-1 text-xl">{getCountries ? getCountries.join(", ") : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
-                        <h1 className="text-white font-semibold text-xl pb-3 whitespace-nowrap">Languages:</h1>
+                    <div className="relative flex flex-col gap-6 items-start w-full sm:flex-row">
+                        <h1 className="text-white font-semibold text-xl whitespace-nowrap">Languages:</h1>
                         <h3 className="text-white flex-1 text-xl">{getLanguages ? getLanguages.join(", ") : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
-                        <h1 className="text-white font-semibold text-xl pb-3 whitespace-nowrap">Budget:</h1>
+                    <div className="relative flex flex-col gap-6 items-start w-full sm:flex-row">
+                        <h1 className="text-white font-semibold text-xl whitespace-nowrap">Budget:</h1>
                         <h3 className="text-white flex-1 text-xl">{budget ? parseInt(budget).toLocaleString("en-US", { style: "currency", currency: "USD" }) : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
-                        <h1 className="text-white font-semibold text-xl pb-3 whitespace-nowrap">Revenue:</h1>
+                    <div className="relative flex flex-col gap-6 items-start w-full sm:flex-row">
+                        <h1 className="text-white font-semibold text-xl whitespace-nowrap">Revenue:</h1>
                         <h3 className="text-white flex-1 text-xl">{revenue ? parseInt(revenue).toLocaleString("en-US", { style: "currency", currency: "USD" }) : "N/A"}</h3>
                     </div>
-                    <div className="relative grid grid-cols-1 gap-2 w-full justify-between sm:grid-cols-2">
-                        <h1 className="text-white font-semibold text-xl pb-3 whitespace-nowrap">Production Companies:</h1>
+                    <div className="relative flex flex-col gap-6 items-start w-full sm:flex-row">
+                        <h1 className="text-white font-semibold text-xl whitespace-nowrap">Production Companies:</h1>
                         <h3 className="text-white flex-1 text-xl">{getCompanies ? getCompanies.join(", ") : "N/A"}</h3>
                     </div>
                     </div>
